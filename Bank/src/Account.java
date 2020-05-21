@@ -1,5 +1,5 @@
 
-public interface Account {
+public interface Account {;
 	//will add int amount to balance
 	public void deposit(int amount);
 	//will subtract int amount to balance
