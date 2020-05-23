@@ -21,7 +21,7 @@ public class checking implements Account {
 			int bal){
 		this.fName = fName;
 		this.lName = lName;
-		//open account with this bal
+		//open account with this bal.
 		this.bal = bal;
 	}
 	public int getId() {
