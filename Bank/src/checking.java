@@ -48,5 +48,9 @@ public class checking implements Account {
 	public void withdraw(int amount) {
 		bal -= amount;
 	}
+	public String toString() {
+		return fName + lName;
+		
+	}
 
 }
