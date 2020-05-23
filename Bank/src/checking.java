@@ -1,4 +1,3 @@
-import java.awt.Graphics;
 
 public class checking implements Account {
 	//first name of account holder
@@ -9,6 +8,7 @@ public class checking implements Account {
 	private int bal;
 	//id of account holder
 	private int id;
+	//
 	
 	public checking(String fName,String lName) {
 		this.fName = fName;
@@ -24,18 +24,29 @@ public class checking implements Account {
 		//open account with this bal
 		this.bal = bal;
 	}
-	
+	public int getId() {
+		return id;
+	}
+	public void setId() {
+		
+	}
+	public String getFname() {
+		return fName;
+	}
+	public String getLname() {
+		return lName;
+	}
 	public int getbal() {
 		return bal;
 	}
 	
 	public void deposit(int amount) {
-		
+		bal += amount;
 	}
 
 	
 	public void withdraw(int amount) {
-		
+		bal -= amount;
 	}
 
 }
