@@ -25,6 +25,10 @@ public class checking implements Account {
 		this.bal = bal;
 	}
 	
+	public int getbal() {
+		return bal;
+	}
+	
 	public void deposit(int amount) {
 		
 	}
@@ -34,9 +38,4 @@ public class checking implements Account {
 		
 	}
 
-	
-	public int getbal() {
-		return 0;
-	}
-	
 }
