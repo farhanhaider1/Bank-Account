@@ -39,11 +39,30 @@ public class checking implements Account {
 	public int getbal() {
 		return bal;
 	}
-	
-	public void deposit(int amount) {
+	/* 
+	 * Process:
+	 * 		Increase balance by provided amount if allowed
+	 * Action allowed if:
+	 * 		Amount > 0 
+	 * Exceptions:
+	 * 		currencyError thrown
+	 */
+	public void deposit(int amount) 
+			throws currencyError {
+		if(amount <= 0) {
+			throw new currencyError("Deposit must be greater than $0");
+		}
+		//perform action
 		bal += amount;
 	}
-	//reduce balance by amount
+	/* 
+	 * Process:
+	 * 		Reduce balance by provided amount if allowed
+	 * Action allowed if:
+	 * 		Amount > 0 <= balance
+	 * Exceptions:
+	 * 		insufficientFundsException and currencyError thrown
+	 */
 	public void withdraw(int amount) 
 			throws insufficientFundsException, currencyError {
 		if(amount < 0) {
