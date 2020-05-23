@@ -49,7 +49,7 @@ public class checking implements Account {
 		bal -= amount;
 	}
 	public String toString() {
-		return fName + lName;
+		return fName + lName+"";
 		
 	}
 
