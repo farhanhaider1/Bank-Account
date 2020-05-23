@@ -43,14 +43,22 @@ public class checking implements Account {
 	public void deposit(int amount) {
 		bal += amount;
 	}
-
-	
-	public void withdraw(int amount) {
+	//reduce balance by amount
+	public void withdraw(int amount) 
+			throws insufficientFundsException, currencyError {
+		if(amount < 0) {
+			throw new currencyError("less than 0 not allowed\n");
+		}
+		else if(bal < amount) {
+			throw new insufficientFundsException("Amount requested ($"+amount+") is "+
+		"more than available balance\n");
+		}
+		//make the withdrawal
 		bal -= amount;
 	}
+	//returns information about the account
 	public String toString() {
-		return fName + lName+"";
-		
+		return "Name: "+ fName + " " + lName;	
 	}
 
 }
