@@ -1,41 +1,17 @@
 
 public class checking implements Account {
-	//first name of account holder
-	private String fName;
-	//last name of account holder
-	private String lName;
 	//balance of account
 	private int bal;
-	//id of account holder
-	private int id;
-	//
 	
-	public checking(String fName,String lName) {
-		this.fName = fName;
-		this.lName = lName;
-		//open account with $0
+	public checking() {
 		bal = 0;
 	}
 	//constructor 2 if initial account is provided
-	public checking(String fName,String lName,
-			int bal){
-		this.fName = fName;
-		this.lName = lName;
+	public checking(int bal){
 		//open account with this bal.
 		this.bal = bal;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId() {
-		
-	}
-	public String getFname() {
-		return fName;
-	}
-	public String getLname() {
-		return lName;
-	}
+
 	public int getbal() {
 		return bal;
 	}
@@ -77,7 +53,7 @@ public class checking implements Account {
 	}
 	//returns information about the account
 	public String toString() {
-		return "Name: "+ fName + " " + lName;	
+		return "Balance: " + bal;	
 	}
 
 }
