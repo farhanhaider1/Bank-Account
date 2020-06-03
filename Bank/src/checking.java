@@ -11,7 +11,7 @@ public class checking implements Account {
 		//open account with this bal.
 		this.bal = bal;
 	}
-
+    //return balance for the account
 	public int getbal() {
 		return bal;
 	}
