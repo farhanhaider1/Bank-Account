@@ -5,12 +5,12 @@ import javax.naming.InvalidNameException;
 
 public class Main {
 	//name of customer
-	String fName;
-	String lName;
+	static String fName;
+	static String lName;
 	//type of account
-	String type;
+	static String type;
 	//Total number of accounts
-	int numAcc;
+	static int numAcc;
 	public static void main(String[] args) {
 		//universal Scanner
 		Scanner in = new Scanner(System.in);
@@ -33,8 +33,17 @@ public class Main {
 			switch(option){
 				case 'A':
 				case 'a':
-					System.out.println("Enter First Name: ");
-					
+					try {
+						//get first name
+						getFname(in);
+						//get last name
+						getLastName(in);
+					} catch (InvalidNameException e) {
+						System.out.println(e.getMessage());
+					}
+					//ask for menu option again
+					System.out.println(printMenu());
+					option = in.next().charAt(0);
 					break;
 				//quit
 				case 'q':
@@ -62,27 +71,68 @@ public class Main {
 		//close Scanner
 		in.close();
 	}
-	public void askInfo(Scanner in) 
+	public static void getFname(Scanner in) 
 			throws InvalidNameException{
+		boolean fRight = false;
+		//while loop to ask for full name again
 		//ask for names
 		//name must be more than 1 letter
-		System.out.print("Enter First Name: ");
-		fName = in.next();
-		if(fName.length() < 2) {
-			throw new InvalidNameException("First name initial error") ;
-		}
-		System.out.print("Enter Last Name: ");
-		lName = in.next();
-		if(lName.length() < 2) {
-			throw new InvalidNameException("Last name initial error") ;
-		}
+		//allow 3 tries and if fail -> throw error
+		int fNameCount = 3; //first name input counter
+		//using while loop to 
+		while(fRight != true) {
+			System.out.print("Enter First Name: ");
+			fName = in.next();
+			if(fName.length() < 2) {
+				fRight = false;
+				//reduce counter number
+				fNameCount--;
+				//print number of tries left
+				System.out.println("TRY AGAIN: ("+ fNameCount+" of 3)");
+				//if failed 4th time, throw error
+				if(fNameCount == 0) {
+					throw new InvalidNameException("First name initial error") ;
+				}
+			}
+			else {
+				fRight = true;
+			}
+		} //while loop for first name ends here
 		
 		//ask for account type
 		System.out.print("Enter Account Type: ");
 		type = in.next();
-		
+		fRight = true;
 	}
-	public void addNewAcc() {
+	public static void getLastName(Scanner in) 
+			throws InvalidNameException {
+		
+		boolean fRight = false;
+		//while loop to ask for last name again
+		//name must be more than 1 letter
+		//allow 3 tries and if fail -> throw error
+		int fNameCount = 3; //first name input counter
+		//using while loop to 
+		while(fRight != true) {
+			System.out.print("Enter Last Name: ");
+			lName = in.next();
+			if(fName.length() < 2) {
+				fRight = false;
+				//reduce counter number
+				fNameCount--;
+				//print number of tries left
+				System.out.println("TRY AGAIN: ("+ fNameCount+" of 3)");
+				//if failed 4th time, throw error
+				if(fNameCount == 0) {
+					throw new InvalidNameException("Last name initial error") ;
+				}
+			}
+			else {
+				fRight = true;
+			}
+		} //while loop for last name ends here
+	}
+	public static void addNewAcc() {
 		numAcc++;
 	}
 	//print menu
